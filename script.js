@@ -58,7 +58,7 @@ const translations = {
         // About Section
         about_title: "The Essence of Elegance",
         about_desc1: "ÉMORA is a luxury perfume brand inspired by the timeless elegance of Paris and the sophistication of modern French craftsmanship. Each fragrance is meticulously created to tell a unique story of luxury, femininity, and refinement.",
-        about_desc2: "Our collection combines the finest ingredients with artistic vision, creating scents that transcend time and captivate the senses. ÉMORA is more than a perfume—it's an expression of your unique personality and style.",
+        about_desc2: "Our collection combines the finest ingredients with artistic vision, creating scents that transcend time and captivate the senses. ÉMORA is more than a perfume it's an expression of your unique personality and style.",
         about_story_start: "Émora began with one simple question:<br><em>What if feelings could be worn?</em>",
         about_story_desc1: "From there, each scent is crafted not just with ingredients, but with emotion. Some are inspired by the warmth of an unforgettable embrace. Others are born from unspoken longing. Some bring the peace of coming home after a long journey.",
         about_story_desc2: "We don't create perfumes just to smell good.",
@@ -123,7 +123,7 @@ const translations = {
         footer_perfumes: "Perfumes",
         footer_reviews: "Reviews",
         footer_follow: "Follow Us",
-        footer_copyright: "© 2026 ÉMORA Perfume. All rights reserved."
+        footer_copyright: "© 2025 ÉMORA Perfume. All rights reserved."
     },
     id: {
         // Navigation
@@ -140,7 +140,7 @@ const translations = {
         // About Section
         about_title: "Esensi Elegance",
         about_desc1: "ÉMORA adalah merek parfum mewah yang terinspirasi dari keanggunan abadi Paris dan kecanggihan keahlian Prancis modern. Setiap wewangian dibuat dengan cermat untuk menceritakan kisah unik tentang kemewahan, feminitas, dan kesempurnaan.",
-        about_desc2: "Koleksi kami menggabungkan bahan-bahan terbaik dengan visi artistik, menciptakan aromaterapi yang melampaui waktu dan memikat indra. ÉMORA bukan hanya parfum—ini adalah ekspresi kepribadian dan gaya unik Anda.",
+        about_desc2: "Koleksi kami menggabungkan bahan-bahan terbaik dengan visi artistik, menciptakan aromaterapi yang melampaui waktu dan memikat indra. ÉMORA bukan hanya parfum ini adalah ekspresi kepribadian dan gaya unik Anda.",
         about_story_start: "Émora dimulai dari satu pertanyaan sederhana:<br><em>Bagaimana jika perasaan bisa dikenakan?</em>",
         about_story_desc1: "Dari sana, setiap aroma diracik bukan hanya dengan bahan, tapi dengan rasa. Ada yang terinspirasi dari hangatnya pelukan yang sulit dilupakan. Ada yang lahir dari rindu yang tak sempat diungkapkan. Ada juga yang membawa ketenangan seperti pulang, setelah perjalanan panjang.",
         about_story_desc2: "Kami tidak menciptakan parfum untuk sekadar wangi.",
@@ -205,7 +205,7 @@ const translations = {
         footer_perfumes: "Parfum",
         footer_reviews: "Ulasan",
         footer_follow: "Ikuti Kami",
-        footer_copyright: "© 2026 ÉMORA Perfume. Semua hak dilindungi."
+        footer_copyright: "© 2025 ÉMORA Perfume. Semua hak dilindungi."
     },
     fr: {
         // Navigation
@@ -222,7 +222,7 @@ const translations = {
         // About Section
         about_title: "L'Essence de l'Élégance",
         about_desc1: "ÉMORA est une marque de parfum de luxe inspirée par l'élégance intemporelle de Paris et la sophistication de l'artisanat français moderne. Chaque fragrance est méticuleusement créée pour raconter une histoire unique de luxe, de féminité et de raffinement.",
-        about_desc2: "Notre collection combine les ingrédients les plus fins avec une vision artistique, créant des senteurs qui transcendent le temps et captivent les sens. ÉMORA n'est pas seulement un parfum—c'est une expression de votre personnalité et de votre style uniques.",
+        about_desc2: "Notre collection combine les ingrédients les plus fins avec une vision artistique, créant des senteurs qui transcendent le temps et captivent les sens. ÉMORA n'est pas seulement un parfum c'est une expression de votre personnalité et de votre style uniques.",
         about_story_start: "Émora a commencé par une question simple :",
         about_story_question: "Et si les sentiments pouvaient être portés ?",
         about_story_desc1: "De là, chaque arôme est élaboré non seulement avec des ingrédients, mais avec émotion. Certains sont inspirés par la chaleur d'une étreinte inoubliable. D'autres naissent d'un désir inexprimé. Certains apportent la paix du retour à la maison après un long voyage.",
@@ -288,7 +288,7 @@ const translations = {
         footer_perfumes: "Parfums",
         footer_reviews: "Avis",
         footer_follow: "Suivez-Nous",
-        footer_copyright: "© 2026 ÉMORA Parfum. Tous droits réservés."
+        footer_copyright: "© 2025 ÉMORA Parfum. Tous droits réservés."
     }
 };
 
@@ -811,11 +811,22 @@ const productModalTitle = document.getElementById('product-modal-title');
 let currentProduct = '';
 
 if (productDetailsModal && viewDetailsButtons.length > 0) {
+    // Reset modal to initial state
+    function resetModalState() {
+        const productOptionsView = document.getElementById('product-options-view');
+        const storyContentView = document.getElementById('story-content-view');
+        const shopOptionsView = document.getElementById('shop-options-view');
+        productOptionsView.style.display = 'flex';
+        storyContentView.style.display = 'none';
+        shopOptionsView.style.display = 'none';
+    }
+
     // Open modal on View Details button click
     viewDetailsButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             currentProduct = e.target.getAttribute('data-product');
             productModalTitle.textContent = currentProduct;
+            resetModalState();
             productDetailsModal.classList.add('show');
             document.body.style.overflow = 'hidden';
         });
